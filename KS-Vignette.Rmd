@@ -5,4 +5,16 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-The Kolgorov-Smirnoff test 
+Pull out residuals
+Pick a paper that uses KS test
+
+We can use the <b>Kolmorgorov-Smirnov Test</b> as a way to reject null hypotheses. By using this statistical method we are aiming to prove that the two data sets we are working with do not come from the same distribution.
+
+The most common way to reject the null is with a student's t-test, however, this can only be accurately used when we know our data set is <b>normal</b>. If we are using data that we aren't sure about, or know isn't of a normal distribution it can be trickier to reject this hypothesis. That's where the Kolmorgorov-Smirnov Test comes into play. The most important time to think about using this test is when you have a very large data set (n &ge; 50) as opposed to the Shapiro-Wilks test which is better for smaller data sets. 
+
+If we are running a one-sample K-S Test, our null is that the sample comes from the same distribution as the data set we are comparing it with.
+
+If we are running a two-sample K-S Test, our null is that both samples come from the same distribution. 
+
+So why is it important to disprove the null?
+Failing to reject a null hypothesis means there is no sufficient evidence for the expected or the observed effect.
