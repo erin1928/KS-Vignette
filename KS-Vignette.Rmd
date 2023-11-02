@@ -17,7 +17,7 @@ If we are running a one-sample K-S Test, our null is that the sample comes from 
 If we are running a two-sample K-S Test, our null is that both samples come from the same distribution. 
 
 So why is it important to disprove the null?
-Failing to reject a null hypothesis means there is no sufficient evidence for the expected or the observed effect.
+Failing to reject a null hypothesis means there is no sufficient evidence for the expected or the observed results we see in our studies.
 
 
 First, let's make a data set with a normal distribution to use as a comparison later on. Remember, we want a large data set in order to run this test effectively.
@@ -28,7 +28,25 @@ hist(sample_one) #visualizing the normal distribution with a histogram
 ```
 Now let's make a new data set, making sure it is large enough for our test, that is randomized and not normal.
 ```{r 1, include=TRUE}
-sample_two <- rpois(200, 15)
+sample_two <- rpois(200, 15) #using rpois() to randomize a large data set, keeping our size the same for simplicity
 head(sample_two)
 hist(sample_two)
+```
+
+### One-Sample Test ###
+Let's do an example!
+Say we are zoologists studying turtles. We want to conduct an experiment to see if different species of turtle prefer to eat cucumbers or lettuce when presented with both. We are going to use 5 different species and count how many turtles go for each food choice first in each population.
+```{r 3, include=TRUE}
+# create matrix with 5 columns and 2 rows
+data= matrix(c(1:16), ncol=5, nrow = 2, byrow=TRUE)
+ 
+# specify the column names and row names of matrix
+colnames(data) = c('Species 1','Species 2','Species 3','Species 4')
+rownames(data) <- c('Cucumber','Lettuce')
+ 
+# assign to table
+final=as.table(data)
+ 
+# display
+final
 ```
