@@ -19,14 +19,16 @@ If we are running a two-sample K-S Test, our null is that both samples come from
 So why is it important to disprove the null?
 Failing to reject a null hypothesis means there is no sufficient evidence for the expected or the observed effect.
 
-```{r setup, include=TRUE}
-sample_one <- rnorm(100, mean = 50, sd = 2)
-head(sample_one)
-hist(sample_one)
-```
 
+First, let's make a data set with a normal distribution to use as a comparison later on. Remember, we want a large data set in order to run this test effectively.
+```{r setup, include=TRUE}
+sample_one <- rnorm(200, mean = 50, sd = 2) #making an arbitrary data set with the rnorm function to ensure normalcy
+head(sample_one) #first 6 rows of our new data set
+hist(sample_one) #visualizing the normal distribution with a histogram
+```
+Now let's make a new data set, making sure it is large enough for our test, that is randomized and not normal.
 ```{r 1, include=TRUE}
-sample_two <- rpois(100, 15)
+sample_two <- rpois(200, 15)
 head(sample_two)
 hist(sample_two)
 ```
