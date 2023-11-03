@@ -55,6 +55,8 @@ final = as.table(data)
 # display
 final
 ```
-H<sub>0</sub> = There is no difference among turtle species with respect to their choosing of cucumbers over lettuce.
-
+<b>H<sub>0</sub></b> = There is no difference among turtle species with respect to their choosing of cucumbers over lettuce.
+<b>H<sub>1</sub></b> = All turtle species will prefer cucumber over lettuce
+<b>H<sub>2</sub></b> = No species will prefer cucumber over lettuce
+<b>H<sub>3</sub></b> = Some species will prefer cucumber over lettuce
 
