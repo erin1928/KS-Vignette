@@ -378,6 +378,9 @@ samples come from the same distribution.</p>
 <p>So why is it important to disprove the null? Failing to reject a null
 hypothesis means there is no sufficient evidence for the expected or the
 observed results we see in our studies.</p>
+<div id="equation" class="section level2">
+<h2>Equation</h2>
+<p>(/KS_Formula.png)</p>
 <p>First, let’s make a data set with a normal distribution to use as a
 comparison later on. Remember, we want a large data set in order to run
 this test effectively.</p>
@@ -389,7 +392,9 @@ test, that is randomized and not normal.</p>
 to conduct an experiment to see if different species of turtle prefer to
 eat cucumbers or lettuce when presented with both. We are going to use 5
 different species and count how many turtles go for each food choice
-first in each population (n = 120).</p>
+first in each population (n = 120). During our studies we have formed
+the hypothesis that A. marmota, C.f imbriata, and C. amboinensis turtles
+will prefer cucumber over lettuce.</p>
 <pre class="r"><code># create matrix with 5 columns and 2 rows
 data &lt;- matrix(c(16,25,17,8,11, 14, 5, 13, 22, 19), nrow = 2, ncol = 5, byrow = TRUE)
  
@@ -405,8 +410,9 @@ final</code></pre>
 <pre><code>##          A.marmorata  C.fimbriata  C.picta  C.flavomarginata  C.amboinensis
 ## Cucumber           16           25       17                 8            11
 ## Lettuce            14            5       13                22            19</code></pre>
-<p>H<sub>0</sub> = There is no difference among turtle species respect
-to their choosing of cucumbers.</p>
+<p>H<sub>0</sub> = There is no difference among turtle species with
+respect to their choosing of cucumbers over lettuce.</p>
+</div>
 </div>
 
 

@@ -19,6 +19,11 @@ If we are running a two-sample K-S Test, our null is that both samples come from
 So why is it important to disprove the null?
 Failing to reject a null hypothesis means there is no sufficient evidence for the expected or the observed results we see in our studies.
 
+## Equation ##
+
+!(KS-Vignette/KS_Formula.png)
+**fix this link**
+
 
 First, let's make a data set with a normal distribution to use as a comparison later on. Remember, we want a large data set in order to run this test effectively.
 ```{r setup, include=FALSE}
@@ -35,7 +40,7 @@ hist(sample_two)
 
 ### One-Sample Test ###
 Let's do an example!
-Say we are zoologists studying turtles. We want to conduct an experiment to see if different species of turtle prefer to eat cucumbers or lettuce when presented with both. We are going to use 5 different species and count how many turtles go for each food choice first in each population (n = 120). During our studies we have formed the hypothesis that regardless of species, turtles will prefer cucumber over lettuce.
+Say we are zoologists studying turtles. We want to conduct an experiment to see if different species of turtle prefer to eat cucumbers or lettuce when presented with both. We are going to use 5 different species and count how many turtles go for each food choice first in each population (n = 120). During our studies we have formed the hypothesis that A. marmota, C.f imbriata, and C. amboinensis turtles will prefer cucumber over lettuce.
 ```{r 3, include=TRUE}
 # create matrix with 5 columns and 2 rows
 data <- matrix(c(16,25,17,8,11, 14, 5, 13, 22, 19), nrow = 2, ncol = 5, byrow = TRUE)
@@ -50,4 +55,6 @@ final = as.table(data)
 # display
 final
 ```
-H<sub>0</sub> = There is no difference among turtle species  respect to their choosing of cucumbers.
+H<sub>0</sub> = There is no difference among turtle species with respect to their choosing of cucumbers over lettuce.
+
+
