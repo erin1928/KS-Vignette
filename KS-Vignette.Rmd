@@ -23,12 +23,21 @@ Failing to reject a null hypothesis means there is no sufficient evidence for th
 
 [!](KS_Formula.png)
 
+<b>F<sub>0</sub>(x)</b> = the total observed frequency distribution of a random sample
+
+<b>F<sub>0</sub>(x) = <sup>k</sup>&frasl;<sub>n</sub></b> where k = the number of observations and n is the total number of observations
+
+<b>F<sub>0</sub>(r)</b> = the theoretical frequency distribution
+
+<b>D</b> = the critical value between 0 and 1
+
+If the calculated value is <b>less</b> than the critical value <b>D</b> we must <b>accept the null hypothesis</b>
+
+If the calculated value is <b>greater</b> than the critical value we can <b> reject the null hypothesis</b>
 
 
-
-
-First, let's make a data set with a normal distribution to use as a comparison later on. Remember, we want a large data set in order to run this test effectively.
 ```{r setup, include=FALSE}
+#First, let's make a data set with a normal distribution to use as a comparison later on. Remember, we want a large data set in order to run this test effectively.
 sample_one <- rnorm(200, mean = 50, sd = 2) #making an arbitrary data set with the rnorm function to ensure normalcy
 head(sample_one) #first 6 rows of our new data set
 hist(sample_one) #visualizing the normal distribution with a histogram
