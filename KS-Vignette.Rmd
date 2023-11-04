@@ -73,11 +73,12 @@ final
 Let's say we predict 18 turtles from each species choose cucumber and make a new table with our prediction.
 
 ```{r 4, include=TRUE}
-data_2 <- matrix(c(18, 16, 25, 18, 17, 8, 18, 11, 14, 18, 5, 13, 18, 22, 19), nrow = 2, ncol = 6)
-colnames(new_data) <- c('Prediction', 'A.marmorata ','C.fimbriata ','C.picta ','C.flavomarginata ', 'C.amboinensis')
-rownames(new_data) <-  c('Cucumber','Lettuce')
+data_2 <- matrix(c(16, 25, 17, 8, 11, 14, 5, 13, 22, 19, 18, 18, 18, 18, 18), nrow = 3, ncol = 5)
+colnames(data_2) <- c('A.marmorata ','C.fimbriata ','C.picta ','C.flavomarginata ', 'C.amboinensis')
+rownames(data_2) <-  c('Cucumber','Lettuce', 'Prediction')
 #assign to table
-final_new = as.table(new_data)
+final_new = as.table(data_2)
+final_new
 
 ```
  
