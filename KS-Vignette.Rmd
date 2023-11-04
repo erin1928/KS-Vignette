@@ -29,7 +29,7 @@ Failing to reject a null hypothesis means there is no sufficient evidence for th
 
 <b>F<sub>0</sub>(r)</b> = the theoretical frequency distribution
 
-<b>D</b> = the critical value between 0 and 1
+<b>D</b> = the critical value between 0 and 1, with values above 0.9 indicating normal distribution.
 
 If the calculated value is <b>less</b> than the critical value <b>D</b> we must <b>accept the null hypothesis</b>
 
@@ -69,4 +69,19 @@ final
 <b>H<sub>0</sub></b> = There is no difference among turtle species with respect to their choosing of cucumbers over lettuce.
 
 <b>H<sub>1</sub></b> = Some species will prefer cucumber over lettuce
+
+Let's say we predict 18 turtles from each species choose cucumber and make a new table with our prediction.
+
+```{r 4, include=TRUE}
+data_2 <- matrix(c(18, 16, 25, 18, 17, 8, 18, 11, 14, 18, 5, 13, 18, 22, 19), nrow = 2, ncol = 6)
+colnames(new_data) <- c('Prediction', 'A.marmorata ','C.fimbriata ','C.picta ','C.flavomarginata ', 'C.amboinensis')
+rownames(new_data) <-  c('Cucumber','Lettuce')
+#assign to table
+final_new = as.table(new_data)
+
+```
+ 
+
+
+
 
