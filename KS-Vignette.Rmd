@@ -21,8 +21,10 @@ Failing to reject a null hypothesis means there is no sufficient evidence for th
 
 ## Equation ##
 
-!(KS-Vignette/KS_Formula.png)
-**fix this link**
+[!](KS_Formula.png)
+
+
+
 
 
 First, let's make a data set with a normal distribution to use as a comparison later on. Remember, we want a large data set in order to run this test effectively.
@@ -57,9 +59,5 @@ final
 ```
 <b>H<sub>0</sub></b> = There is no difference among turtle species with respect to their choosing of cucumbers over lettuce.
 
-<b>H<sub>1</sub></b> = All turtle species will prefer cucumber over lettuce.
-
-<b>H<sub>2</sub></b> = No species will prefer cucumber over lettuce.
-
-<b>H<sub>3</sub></b> = Some species will prefer cucumber over lettuce
+<b>H<sub>1</sub></b> = Some species will prefer cucumber over lettuce
 
