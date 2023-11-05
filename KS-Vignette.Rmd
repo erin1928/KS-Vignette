@@ -35,26 +35,12 @@ If the calculated value is <b>less</b> than the critical value <b>D</b> we must 
 
 If the calculated value is <b>greater</b> than the critical value we can <b> reject the null hypothesis</b>
 
-
-```{r setup, include=FALSE}
-#First, let's make a data set with a normal distribution to use as a comparison later on. Remember, we want a large data set in order to run this test effectively.
-#sample_one <- rnorm(200, mean = 50, sd = 2) #making an arbitrary data set with the rnorm function to ensure normalcy
-#head(sample_one) #first 6 rows of our new data set
-#hist(sample_one) #visualizing the normal distribution with a histogram
-```
-
-```{r 1, include=FALSE}
-#sample_two <- rpois(200, 15) #using rpois() to randomize a large data set, keeping our size the same for simplicity
-#head(sample_two)
-#hist(sample_two)
-```
-
 ### One-Sample Test ###
 Let's do an example!
 Say we are zoologists studying turtles. We want to conduct an experiment to see if different species of turtle prefer to eat cucumbers or lettuce when presented with both. We are going to use 5 different species and count how many turtles go for each food choice first in each population (n = 150).
 ```{r 2, include=TRUE}
 # create matrix with 5 columns and 2 rows
-data <- matrix(c(16, 25, 17, 8, 11, 14, 5, 13, 22, 19), nrow = 2, ncol = 5, byrow = TRUE)
+data <- matrix(c(16, 12, 1, 22, 11, 14, 18, 29, 8, 19), nrow = 2, ncol = 5, byrow = TRUE)
 # specify the column names and row names of matrix
 colnames(data) <- c('A.marmorata ','C.fimbriata ','C.picta ','C.flavomarginata ', 'C.amboinensis')
 rownames(data) <-  c('Cucumber','Lettuce')
@@ -78,13 +64,23 @@ final_new <- rbind(final_new, 'Predictions' = list(18, 18, 18, 18, 18))
 final_new
 ```
 ```{r 5, include=TRUE}
-library(MASS)
-calculations <- matrix(c(16, 18, '16/150', '18/150', '2/150', 25, 18, '41/150', '36/150', '5/150', 17, 18, '58/150', '54/150', '4/150', 8, 18, '66/150', '72/150', '6/150', 11, 18, '77/150', '90/150', '13/150'), nrow = 5, ncol = 5, byrow = TRUE)
+calculations <- matrix(c(16, 18, '16/150', '18/150', '2/150', 12, 18, '28/150', '36/150', '8/150', 1, 18, '29/150', '54/150', '25/150', 22, 18, '51/150', '72/150', '21/150', 11, 18, '62/150', '90/150', '28/150'), nrow = 5, ncol = 5, byrow = TRUE)
 colnames(calculations) <- c('Observed ','Predictions ','F0(X)', 'Fr(X)', '|F0(X) -Fr(X)|')
 rownames(calculations) <-  c('A.marmorata ','C.fimbriata ','C.picta ','C.flavomarginata ', 'C.amboinensis')
 table = as.table(calculations)
 table
 ```
+Now it's time to analyze! To find our critical D value we need to look at our table and find the maximum difference between F<sub>0</sub>(x) and F<sub>r</sub>(x). We can see that our maximum value is that of C. amboinensis at 28/150. Our critical D value that we will use to compare our values to is 0.1867. Now we can look at our table and choose a value of alpha to work with. Say we are 5% certain we are going to make a Type 1 error, i.e. detecting a difference under the assumption of the null, we can use our table to choose our critical value.
 
+![](Critical-D-Values.png)
+```{r 6, include=TRUE}
+#denote the total numer of turtles
+n <- 150
+#grab our formula
+D <- 1.36/sqrt(n)
+#calculate!
+D
+```
+Our critical value for our data set at an alpha level of 5% is 0.11, which is smaller than our calculated value of 0.1867. Because our value is <b>greater</b> than the critical value, we can reject the null and conclude that there is difference among turtle species with their respect to choosing cucumber over lettuce for their snack of choice!
 
 
