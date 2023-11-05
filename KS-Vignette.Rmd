@@ -96,3 +96,8 @@ D <- 1.63/sqrt(n)
 D
 ```
 YES! 0.133 &#8804; 0.1867, therefore we can still reject the null.
+
+```{r 8, include=TRUE}
+new_data <- as.data.frame(data)
+new_data
+```
