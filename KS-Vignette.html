@@ -402,15 +402,12 @@ eat cucumbers or lettuce when presented with both. We are going to use 5
 different species and count how many turtles go for each food choice
 first in each population (n = 120).</p>
 <pre class="r"><code># create matrix with 5 columns and 2 rows
-data &lt;- matrix(c(16,25,17,8,11, 14, 5, 13, 22, 19), nrow = 2, ncol = 5, byrow = TRUE)
- 
+data &lt;- matrix(c(16, 25, 17, 8, 11, 14, 5, 13, 22, 19), nrow = 2, ncol = 5, byrow = TRUE)
 # specify the column names and row names of matrix
 colnames(data) &lt;- c(&#39;A.marmorata &#39;,&#39;C.fimbriata &#39;,&#39;C.picta &#39;,&#39;C.flavomarginata &#39;, &#39;C.amboinensis&#39;)
 rownames(data) &lt;-  c(&#39;Cucumber&#39;,&#39;Lettuce&#39;)
- 
 # assign to table
 final = as.table(data)
- 
 # display
 final</code></pre>
 <pre><code>##          A.marmorata  C.fimbriata  C.picta  C.flavomarginata  C.amboinensis
@@ -422,15 +419,35 @@ with respect to their choosing of cucumbers over lettuce.</p>
 lettuce</p>
 <p>Let’s say we predict 18 turtles from each species choose cucumber and
 make a new table with our prediction.</p>
-<pre class="r"><code>final_new &lt;- final
-final_new &lt;- rbind(final_new, list(&#39;Predictions&#39;, 18, 18, 18, 18, 18))</code></pre>
-<pre><code>## Warning in rbind(final_new, list(&quot;Predictions&quot;, 18, 18, 18, 18, 18)): number of
-## columns of result is not a multiple of vector length (arg 2)</code></pre>
-<pre class="r"><code>final_new</code></pre>
-<pre><code>##          A.marmorata   C.fimbriata  C.picta  C.flavomarginata  C.amboinensis
-## Cucumber 16            25           17       8                 11           
-## Lettuce  14            5            13       22                19           
-##          &quot;Predictions&quot; 18           18       18                18</code></pre>
+<pre class="r"><code>#appending our original table
+final_new &lt;- final 
+#assigning a new row name and filling in the data using the list function
+final_new &lt;- rbind(final_new, &#39;Predictions&#39; = list(18, 18, 18, 18, 18, 18)) </code></pre>
+<pre><code>## Warning in rbind(final_new, Predictions = list(18, 18, 18, 18, 18, 18)): number
+## of columns of result is not a multiple of vector length (arg 2)</code></pre>
+<pre class="r"><code>#ready to print!
+final_new</code></pre>
+<pre><code>##             A.marmorata  C.fimbriata  C.picta  C.flavomarginata  C.amboinensis
+## Cucumber    16           25           17       8                 11           
+## Lettuce     14           5            13       22                19           
+## Predictions 18           18           18       18                18</code></pre>
+<pre class="r"><code>calculations &lt;- matrix(c(16, 18, 16/30, 18/30, 2/30, 25, 18, 25/30, 18/30, 5/30, 17, 18, 17/30, 18/30, 1/30, 8, 18, 8/30, 18/30, 10/30, 11, 18, 11/30, 18/30, 7/30), nrow = 5, ncol = 5, byrow = TRUE)
+colnames(calculations) &lt;- c(&#39;Observed &#39;,&#39;Predictions &#39;,&#39;F0(X)&#39;,&#39;|Fr(X)&#39;, &#39;F0(X) - Fr(X)|&#39;)
+rownames(calculations) &lt;-  c(&#39;A.marmorata &#39;,&#39;C.fimbriata &#39;,&#39;C.picta &#39;,&#39;C.flavomarginata &#39;, &#39;C.amboinensis&#39;)
+table = as.table(calculations)
+table</code></pre>
+<pre><code>##                     Observed  Predictions        F0(X)      |Fr(X)
+## A.marmorata       16.00000000  18.00000000  0.53333333  0.60000000
+## C.fimbriata       25.00000000  18.00000000  0.83333333  0.60000000
+## C.picta           17.00000000  18.00000000  0.56666667  0.60000000
+## C.flavomarginata   8.00000000  18.00000000  0.26666667  0.60000000
+## C.amboinensis     11.00000000  18.00000000  0.36666667  0.60000000
+##                   F0(X) - Fr(X)|
+## A.marmorata           0.06666667
+## C.fimbriata           0.16666667
+## C.picta               0.03333333
+## C.flavomarginata      0.33333333
+## C.amboinensis         0.23333333</code></pre>
 </div>
 </div>
 
