@@ -29,7 +29,7 @@ Failing to reject a null hypothesis means there is no sufficient evidence for th
 
 <b>F<sub>r</sub>(x)</b> = the theoretical frequency distribution
 
-<b>D</b> = the critical value between 0 and 1 indicating the magnitude of the observed difference in distributions. Values closer to 1 indicate high likeness, while values closer to 0 indicate difference. Unlike a p-value which has a set threshold for whether something is significant or not (although this is also not necessarily the be-all-end-all of significance!), the D value produced from the K-S test is relative to each individual distribution. Different data sets will produce different D values!
+<b>D</b> = the critical value between 0 and 1 indicating the magnitude of the observed difference in distributions. Values closer to 1 indicate high likeness, while values closer to 0 indicate difference. Unlike a p-value which has a set threshold for whether something is significant or not--although this is also not necessarily the be-all-end-all of significance!--the D value produced from the K-S test is relative to each individual distribution. <b>Different data sets will produce different D values!</b>
 
 If the calculated value is <b>less</b> than the critical value <b>D</b> we must <b>accept the null hypothesis</b>
 
@@ -63,9 +63,9 @@ final = as.table(data)
 # display
 final
 ```
-<b>H<sub>0</sub></b> = There is no difference among turtle species with respect to their choosing of cucumbers over lettuce.
+<b>H<sub>0</sub></b> = There is no difference among turtle species with respect to their choice of cucumber over lettuce.
 
-<b>H<sub>1</sub></b> = Some species will prefer cucumber over lettuce
+<b>H<sub>1</sub></b> = There is a difference among turtle species with respect to their choice of cucumber over lettuce
 
 Let's say we predict 18 turtles from each species choose cucumber and make a new table with our prediction.
 
@@ -79,7 +79,7 @@ final_new
 ```
 ```{r 5, include=TRUE}
 library(MASS)
-calculations <- matrix(c(16, 18, 16/150, 18/150, 2/150, 25, 18, 41/150, 36/150, 5/150, 17, 18, 58/150, 54/150, 4/150, 8, 18, 66/150, 72/150, 6/150, 11, 18, 77/150, 90/150, 13/150), nrow = 5, ncol = 5, byrow = TRUE)
+calculations <- matrix(c(16, 18, '16/150', '18/150', '2/150', 25, 18, '41/150', '36/150', '5/150', 17, 18, '58/150', '54/150', '4/150', 8, 18, '66/150', '72/150', '6/150', 11, 18, '77/150', '90/150', '13/150'), nrow = 5, ncol = 5, byrow = TRUE)
 colnames(calculations) <- c('Observed ','Predictions ','F0(X)', 'Fr(X)', '|F0(X) -Fr(X)|')
 rownames(calculations) <-  c('A.marmorata ','C.fimbriata ','C.picta ','C.flavomarginata ', 'C.amboinensis')
 table = as.table(calculations)

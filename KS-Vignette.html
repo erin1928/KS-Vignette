@@ -390,16 +390,14 @@ number of observations and n is the total number of observations</p>
 magnitude of the observed difference in distributions. Values closer to
 1 indicate high likeness, while values closer to 0 indicate difference.
 Unlike a p-value which has a set threshold for whether something is
-significant or not (although this is also not necessarily the
-be-all-end-all of significance!), the D value produced from the K-S test
-is relative to each individual distribution. Different data sets will
-produce different D values!</p>
+significant or not–although this is also not necessarily the
+be-all-end-all of significance!–the D value produced from the K-S test
+is relative to each individual distribution. <b>Different data sets will
+produce different D values!</b></p>
 <p>If the calculated value is <b>less</b> than the critical value
 <b>D</b> we must <b>accept the null hypothesis</b></p>
 <p>If the calculated value is <b>greater</b> than the critical value we
 can <b> reject the null hypothesis</b></p>
-<p>Now let’s make a new data set, making sure it is large enough for our
-test, that is randomized and not normal.</p>
 <div id="one-sample-test" class="section level3">
 <h3>One-Sample Test</h3>
 <p>Let’s do an example! Say we are zoologists studying turtles. We want
@@ -420,9 +418,9 @@ final</code></pre>
 ## Cucumber           16           25       17                 8            11
 ## Lettuce            14            5       13                22            19</code></pre>
 <p><b>H<sub>0</sub></b> = There is no difference among turtle species
-with respect to their choosing of cucumbers over lettuce.</p>
-<p><b>H<sub>1</sub></b> = Some species will prefer cucumber over
-lettuce</p>
+with respect to their choice of cucumber over lettuce.</p>
+<p><b>H<sub>1</sub></b> = There is a difference among turtle species
+with respect to their choice of cucumber over lettuce</p>
 <p>Let’s say we predict 18 turtles from each species choose cucumber and
 make a new table with our prediction.</p>
 <pre class="r"><code>#appending our original table
@@ -436,23 +434,17 @@ final_new</code></pre>
 ## Lettuce     14           5            13       22                19           
 ## Predictions 18           18           18       18                18</code></pre>
 <pre class="r"><code>library(MASS)
-calculations &lt;- matrix(c(16, 18, 16/150, 18/150, 2/150, 25, 18, 41/150, 36/150, 5/150, 17, 18, 58/150, 54/150, 4/150, 8, 18, 66/150, 72/150, 6/150, 11, 18, 77/150, 90/150, 13/150), nrow = 5, ncol = 5, byrow = TRUE)
+calculations &lt;- matrix(c(16, 18, &#39;16/150&#39;, &#39;18/150&#39;, &#39;2/150&#39;, 25, 18, &#39;41/150&#39;, &#39;36/150&#39;, &#39;5/150&#39;, 17, 18, &#39;58/150&#39;, &#39;54/150&#39;, &#39;4/150&#39;, 8, 18, &#39;66/150&#39;, &#39;72/150&#39;, &#39;6/150&#39;, 11, 18, &#39;77/150&#39;, &#39;90/150&#39;, &#39;13/150&#39;), nrow = 5, ncol = 5, byrow = TRUE)
 colnames(calculations) &lt;- c(&#39;Observed &#39;,&#39;Predictions &#39;,&#39;F0(X)&#39;, &#39;Fr(X)&#39;, &#39;|F0(X) -Fr(X)|&#39;)
 rownames(calculations) &lt;-  c(&#39;A.marmorata &#39;,&#39;C.fimbriata &#39;,&#39;C.picta &#39;,&#39;C.flavomarginata &#39;, &#39;C.amboinensis&#39;)
 table = as.table(calculations)
 table</code></pre>
-<pre><code>##                     Observed  Predictions        F0(X)       Fr(X)
-## A.marmorata       16.00000000  18.00000000  0.10666667  0.12000000
-## C.fimbriata       25.00000000  18.00000000  0.27333333  0.24000000
-## C.picta           17.00000000  18.00000000  0.38666667  0.36000000
-## C.flavomarginata   8.00000000  18.00000000  0.44000000  0.48000000
-## C.amboinensis     11.00000000  18.00000000  0.51333333  0.60000000
-##                   |F0(X) -Fr(X)|
-## A.marmorata           0.01333333
-## C.fimbriata           0.03333333
-## C.picta               0.02666667
-## C.flavomarginata      0.04000000
-## C.amboinensis         0.08666667</code></pre>
+<pre><code>##                   Observed  Predictions  F0(X)  Fr(X)  |F0(X) -Fr(X)|
+## A.marmorata       16        18           16/150 18/150 2/150         
+## C.fimbriata       25        18           41/150 36/150 5/150         
+## C.picta           17        18           58/150 54/150 4/150         
+## C.flavomarginata  8         18           66/150 72/150 6/150         
+## C.amboinensis     11        18           77/150 90/150 13/150</code></pre>
 </div>
 </div>
 
