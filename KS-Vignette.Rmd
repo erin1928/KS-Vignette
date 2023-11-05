@@ -72,25 +72,13 @@ final
 
 Let's say we predict 18 turtles from each species choose cucumber and make a new table with our prediction.
 
-```{r 3, include=TRUE}
-data <- as.data.frame(data)
-data_new <- as.data.frame(c(18, 18, 18, 18, 18), ncol = 0, nrow = 1)
-names(data_new) <- c("Prediction")
-rbind(data, setNames(names(data_new), names(data)))
-```
 
 ```{r 4, include=TRUE}
-Prediction <- c(18, 18, 18, 18, 18)
-names(final) <- c('Lettuce', 'Cucumber')
-final <- cbind(data, Prediction)
-data_2 <- matrix(c(16, 25, 17, 8, 11, 14, 5, 13, 22, 19, 18, 18, 18, 18, 18), nrow = 3, ncol = 5)
-colnames(data_2) <- c('A.marmorata ','C.fimbriata ','C.picta ','C.flavomarginata ', 'C.amboinensis')
-rownames(data_2) <-  c('Cucumber','Lettuce', 'Prediction')
-#assign to table
-final_new = as.table(data_2)
+final_new <- final
+final_new <- rbind(final_new, 'Predictions' = list(18, 18, 18, 18, 18, 18))
 final_new
 ```
- 
+
 
 
 

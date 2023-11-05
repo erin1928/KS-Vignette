@@ -11,7 +11,7 @@
 
 <meta name="author" content="Erin Anderson" />
 
-<meta name="date" content="2023-11-03" />
+<meta name="date" content="2023-11-04" />
 
 <title>KS-Vignette</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">KS-Vignette</h1>
 <h4 class="author">Erin Anderson</h4>
-<h4 class="date">2023-11-03</h4>
+<h4 class="date">2023-11-04</h4>
 
 </div>
 
@@ -383,10 +383,15 @@ observed results we see in our studies.</p>
 <p><a href="KS_Formula.png">!</a></p>
 <p><b>F<sub>0</sub>(x)</b> = the total observed frequency distribution
 of a random sample</p>
-<p><b>F<sub>0</sub>(x)</b> = <sup>k</sup>⁄<sub>n</sub></p>
-<p>First, let’s make a data set with a normal distribution to use as a
-comparison later on. Remember, we want a large data set in order to run
-this test effectively.</p>
+<p><b>F<sub>0</sub>(x) = <sup>k</sup>⁄<sub>n</sub></b> where k = the
+number of observations and n is the total number of observations</p>
+<p><b>F<sub>0</sub>(r)</b> = the theoretical frequency distribution</p>
+<p><b>D</b> = the critical value between 0 and 1, with values above 0.9
+indicating normal distribution.</p>
+<p>If the calculated value is <b>less</b> than the critical value
+<b>D</b> we must <b>accept the null hypothesis</b></p>
+<p>If the calculated value is <b>greater</b> than the critical value we
+can <b> reject the null hypothesis</b></p>
 <p>Now let’s make a new data set, making sure it is large enough for our
 test, that is randomized and not normal.</p>
 <div id="one-sample-test" class="section level3">
@@ -415,6 +420,17 @@ final</code></pre>
 with respect to their choosing of cucumbers over lettuce.</p>
 <p><b>H<sub>1</sub></b> = Some species will prefer cucumber over
 lettuce</p>
+<p>Let’s say we predict 18 turtles from each species choose cucumber and
+make a new table with our prediction.</p>
+<pre class="r"><code>final_new &lt;- final
+final_new &lt;- rbind(final_new, list(&#39;Predictions&#39;, 18, 18, 18, 18, 18))</code></pre>
+<pre><code>## Warning in rbind(final_new, list(&quot;Predictions&quot;, 18, 18, 18, 18, 18)): number of
+## columns of result is not a multiple of vector length (arg 2)</code></pre>
+<pre class="r"><code>final_new</code></pre>
+<pre><code>##          A.marmorata   C.fimbriata  C.picta  C.flavomarginata  C.amboinensis
+## Cucumber 16            25           17       8                 11           
+## Lettuce  14            5            13       22                19           
+##          &quot;Predictions&quot; 18           18       18                18</code></pre>
 </div>
 </div>
 
