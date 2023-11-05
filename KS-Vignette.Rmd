@@ -21,15 +21,15 @@ Failing to reject a null hypothesis means there is no sufficient evidence for th
 
 ## Equation ##
 
-[!](KS_Formula.png)
+![](KS_Formula.png)
 
 <b>F<sub>0</sub>(x)</b> = the total observed frequency distribution of a random sample
 
 <b>F<sub>0</sub>(x) = <sup>k</sup>&frasl;<sub>n</sub></b> where k = the number of observations and n is the total number of observations
 
-<b>F<sub>0</sub>(r)</b> = the theoretical frequency distribution
+<b>F<sub>r</sub>(x)</b> = the theoretical frequency distribution
 
-<b>D</b> = the critical value between 0 and 1, with values above 0.9 indicating normal distribution.
+<b>D</b> = the critical value between 0 and 1 indicating the magnitude of the observed difference in distributions. Values closer to 1 indicate high likeness, while values closer to 0 indicate difference. Unlike a p-value which has a set threshold for whether something is significant or not (although this is also not necessarily the be-all-end-all of significance!), the D value produced from the K-S test is relative to each individual distribution. Different data sets will produce different D values!
 
 If the calculated value is <b>less</b> than the critical value <b>D</b> we must <b>accept the null hypothesis</b>
 
@@ -38,20 +38,20 @@ If the calculated value is <b>greater</b> than the critical value we can <b> rej
 
 ```{r setup, include=FALSE}
 #First, let's make a data set with a normal distribution to use as a comparison later on. Remember, we want a large data set in order to run this test effectively.
-sample_one <- rnorm(200, mean = 50, sd = 2) #making an arbitrary data set with the rnorm function to ensure normalcy
-head(sample_one) #first 6 rows of our new data set
-hist(sample_one) #visualizing the normal distribution with a histogram
+#sample_one <- rnorm(200, mean = 50, sd = 2) #making an arbitrary data set with the rnorm function to ensure normalcy
+#head(sample_one) #first 6 rows of our new data set
+#hist(sample_one) #visualizing the normal distribution with a histogram
 ```
-Now let's make a new data set, making sure it is large enough for our test, that is randomized and not normal.
+
 ```{r 1, include=FALSE}
-sample_two <- rpois(200, 15) #using rpois() to randomize a large data set, keeping our size the same for simplicity
-head(sample_two)
-hist(sample_two)
+#sample_two <- rpois(200, 15) #using rpois() to randomize a large data set, keeping our size the same for simplicity
+#head(sample_two)
+#hist(sample_two)
 ```
 
 ### One-Sample Test ###
 Let's do an example!
-Say we are zoologists studying turtles. We want to conduct an experiment to see if different species of turtle prefer to eat cucumbers or lettuce when presented with both. We are going to use 5 different species and count how many turtles go for each food choice first in each population (n = 120).
+Say we are zoologists studying turtles. We want to conduct an experiment to see if different species of turtle prefer to eat cucumbers or lettuce when presented with both. We are going to use 5 different species and count how many turtles go for each food choice first in each population (n = 150).
 ```{r 2, include=TRUE}
 # create matrix with 5 columns and 2 rows
 data <- matrix(c(16, 25, 17, 8, 11, 14, 5, 13, 22, 19), nrow = 2, ncol = 5, byrow = TRUE)
@@ -73,7 +73,7 @@ Let's say we predict 18 turtles from each species choose cucumber and make a new
 #appending our original table
 final_new <- final 
 #assigning a new row name and filling in the data using the list function
-final_new <- rbind(final_new, 'Predictions' = list(18, 18, 18, 18, 18, 18)) 
+final_new <- rbind(final_new, 'Predictions' = list(18, 18, 18, 18, 18)) 
 #ready to print!
 final_new
 ```
