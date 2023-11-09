@@ -146,6 +146,7 @@ Now we can look at both our D value and p-value. Our p-value is < 0.05 and there
 
 
 GONNA NEED TO DO THIS AGAIN
+![](Calculate_d.png)
 ```{r 12, include=TRUE}
 #denote the total number of turtles
 n <- 150
