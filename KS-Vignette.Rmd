@@ -6,7 +6,6 @@ output: html_document
 ---
 
 Pull out residuals
-Pick a paper that uses KS test
 
 We can use the <b>Kolmorgorov-Smirnov Test</b> as a way to reject null hypotheses. By using this statistical method we are aiming to prove that the two data sets we are working with do not come from the same distribution.
 
@@ -83,7 +82,7 @@ D
 ```
 Our critical value for our data set at an alpha level of 5% is 0.11, which is smaller than our calculated value of 0.1867. Because our value is <b>greater</b> than the critical value, we can reject the null and conclude that there is difference among turtle species with their respect to choosing cucumber over lettuce for their snack of choice!
 
-##Challenge 1
+## Challenge 1
 
 Assuming an alpha level of 0.01, what is the critical D value for our sample? Can we still reject the null?
 
@@ -97,7 +96,26 @@ D
 ```
 YES! 0.133 &#8804; 0.1867, therefore we can still reject the null.
 
+Now let's do an example with a data set we are familiar with.
 ```{r 8, include=TRUE}
-new_data <- as.data.frame(data)
-new_data
+#prep to curl our data
+library(curl) 
+#curl our data
+f <- curl("https://raw.githubusercontent.com/fuzzyatelin/fuzzyatelin.github.io/master/AN588_Fall23/zombies.csv")
+#read our csv
+z <- read.csv(f, header = TRUE, sep = ",", stringsAsFactors = TRUE)
+#call our data set
+z
 ```
+
+Now for the easy way! The function for a KS test is built into R, a one-sample test can be called using the ks.test() function. With a one-sided test we are looking to see if the data follows a normal distribution, hence the "pnorm" is what we are testing for. Let's look at age:
+```{r 9, include=TRUE}
+#call our column of interest
+age <- z$age
+#use our function!
+ks.test(age, "pnorm")
+```
+Our p-value is going to tell us if we can accept or reject the null, in this case, that the data we are working with is normally distributed. Since our value is &#60; 0.05 we can reject the null and say that our data is not normally distributed. 
+
+We can discard our D value here because it is going to compare two data sets. Since we are only working with one, a D value of 1 makes sense, since our one set is going to be 100% similar to itself.
+
