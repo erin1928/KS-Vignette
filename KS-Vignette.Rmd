@@ -129,7 +129,7 @@ Our calculated value of D is 0.05 which is smaller than our critical value of 1.
 Now let's do a two-sample test.
 
 First let's make two data sets, one random, and one normal.
-```{r 10, include=TRUE}
+```{r 13, include=TRUE}
 #make this example reproducible
 set.seed(0)
 #generate two data sets. We are using rpois() to ensure a non-normal distribution, and rnorm() to ensure a normalized one.
@@ -137,7 +137,7 @@ data1 <- rpois(n=50, lambda=5)
 data2 <- rnorm(100)
 ```
 
-```{r 11, include=TRUE}
+```{r 14, include=TRUE}
 #using our function, we are going to fill both arguments with the data sets to ensure a comparison
 ks.test(data1, data2)
 ```
@@ -156,7 +156,7 @@ Our calculated value of D is 0.133 which is smaller than our critical value of 0
 
 #Challenge 2
 Using a two-sample KS test, compare age and weight (n=2000)
-```{r 11, include=TRUE}
+```{r 15, include=TRUE}
 #using our function, we are going to fill both arguments with the data sets to ensure a comparison
 height <- z$height
 weight <- z$weight
