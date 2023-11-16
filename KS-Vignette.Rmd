@@ -158,6 +158,16 @@ Our calculated value of D is 0.00816 which is smaller than our critical value of
 If you're curious about seeing a KS Test in action, feel free to check out <a href="Mizumoto&al2022.pdf">this</a> paper on same-sex sexual behavior in termites.
 
 ## Sources
+https://www.tutorialspoint.com/statistics/kolmogorov_smirnov_test.htm <br>
+https://towardsdatascience.com/understanding-kolmogorov-smirnov-ks-tests-for-data-drift-on-profiled-data-5c8317796f78 <br>
+https://www.itl.nist.gov/div898/handbook/eda/section3/eda35g.htm <br>
+https://www.researchgate.net/post/Interpret_P_and_D_values_in_Two-Sample_Kolmogorov-Smirnov_Test <br>
+https://www.statisticshowto.com/kolmogorov-smirnov-test/ <br>
+https://blogs.sas.com/content/iml/2019/05/15/kolmogorov-d-statistic.html <br>
+https://www.sciencedirect.com/topics/earth-and-planetary-sciences/kolmogorov-smirnov-test <br>
+https://stat.ethz.ch/R-manual/R-devel/library/stats/html/ks.test.html <br>
+https://www.statology.org/kolmogorov-smirnov-test-r/ <br>
+
 
 
 
